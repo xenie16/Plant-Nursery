@@ -7,24 +7,17 @@
 
   &__brand {
     display: flex;
-    margin: 0;
     color: white;
     align-items: center;
     gap: 20px;
-    // flex: 1;
+
+    &:hover {
+      cursor: pointer;
+    }
 
     &-logo {
       width: 65px;
       height: 65px;
-      margin: 0;
-    }
-
-    &-name {
-      margin: 0;
-    }
-
-    &-subtitle {
-      margin: 0;
     }
   }
 
@@ -44,5 +37,9 @@
   &__cart {
     width: 50px;
     height: 50px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
