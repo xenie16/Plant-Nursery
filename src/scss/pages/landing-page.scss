@@ -1,21 +1,39 @@
 @import "../components/Button.scss";
 
-body {
-  background-image: url("/lp-background.jpg");
-  background-size: cover;
-  color: white;
-}
-
 .landing-page {
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  color: white;
   display: flex;
   flex-direction: row;
   gap: 10%;
   padding: 10%;
-  height: 100vh;
-  width: 100vw;
   align-items: center;
   justify-content: center;
-  background-color: hsla(0, 0, 0, 0.55);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/lp-background.jpg");
+    background-size: cover;
+    z-index: -2;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: hsla(0, 0, 0, 0.55);
+    z-index: -1;
+  }
 
   &__title {
     font-size: 3em;
