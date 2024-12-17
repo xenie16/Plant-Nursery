@@ -1,12 +1,18 @@
 import "../scss/pages/landing-page.scss";
+import { useNavigate } from "react-router-dom";
 
 function LandingPage() {
+  const navigate = useNavigate();
+  const handleRedirect = () => {
+    navigate("/products");
+  };
+
   return (
     <div className="landing-page">
       <div className="landing-page__left">
         <h1 className="landing-page__title">Welcome to Green Whispers</h1>
         <p className="landing-page__subtitle">Where Every Leaf Tells a Story</p>
-        <button>Get Started</button>
+        <button onClick={handleRedirect}>Get Started</button>
       </div>
       <p className="landing-page__right landing-page__text">
         At Green Whispers, we believe every plant tells a story. We connect
