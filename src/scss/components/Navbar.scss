@@ -1,0 +1,27 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #18553e;
+  padding: 0.5em 15%;
+
+  &__brand {
+    display: flex;
+
+    &-logo {
+      width: 65px;
+      height: 65px;
+    }
+
+    &-name {
+      color: white;
+    }
+  }
+
+  &__cart {
+    &-icon {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
