@@ -1,10 +1,10 @@
 .product-page {
   &__collection {
-    margin: 0 auto;
-    width: 70%;
+    padding: 0 15%;
+    background-color: #f0f0f0;
 
     &-title {
-      margin-top: 2em;
+      padding-top: 2em;
       text-align: center;
       font-size: 2.5em;
     }

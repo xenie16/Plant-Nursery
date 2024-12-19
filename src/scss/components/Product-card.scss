@@ -4,8 +4,9 @@
   align-items: center;
   margin: 1em 0;
   padding: 1em 1.5em;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.17);
+  box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.17);
   border-radius: 14px;
+  background-color: #fff;
 
   &__grid {
     display: grid;
