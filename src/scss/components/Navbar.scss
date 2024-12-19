@@ -2,12 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: white;
   background-color: #18553e;
   padding: 0.5em 15%;
 
   &__brand {
     display: flex;
-    color: white;
     align-items: center;
     gap: 20px;
 
@@ -35,11 +35,23 @@
   }
 
   &__cart {
-    width: 50px;
-    height: 50px;
-
+    position: relative;
     &:hover {
       cursor: pointer;
+    }
+
+    &-icon {
+      width: 50px;
+      height: 50px;
+    }
+
+    &-total {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: black;
+      font-weight: bold;
     }
   }
 }

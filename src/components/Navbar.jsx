@@ -1,7 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import "../scss/components/Navbar.scss";
+import { useSelector } from "react-redux";
+import { selectTotalItems } from "../redux/slices/cartSlice";
 
 function Navbar() {
+  const totalItems = useSelector(selectTotalItems);
   const navigate = useNavigate();
 
   const landingPageRedirect = () => {
@@ -24,12 +27,15 @@ function Navbar() {
       <a className="navbar__links" href="./products">
         Plants
       </a>
-      <img
-        className="navbar__cart"
-        onClick={cartRedirect}
-        src="/cart-icon.svg"
-        alt=""
-      ></img>
+      <div className="navbar__cart">
+        <img
+          className="navbar__cart-icon"
+          onClick={cartRedirect}
+          src="/cart-icon.svg"
+          alt=""
+        ></img>
+        <span className="navbar__cart-total">{totalItems}</span>
+      </div>
     </nav>
   );
 }

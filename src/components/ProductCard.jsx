@@ -1,11 +1,15 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/slices/cartSlice";
 
 function ProductCard({ plant }) {
   const [buttonText, setUseButtonText] = useState("Add to Cart");
   const [isDisabled, setIsDisabled] = useState(false);
+  const dispatch = useDispatch();
 
-  const addToCart = () => {
-    if (buttonText === "Add to Cart") {
+  const handleAddToCart = () => {
+    if (isDisabled === false) {
+      dispatch(addToCart(plant));
       setUseButtonText("Added to Cart");
       setIsDisabled(true);
     }
@@ -22,7 +26,7 @@ function ProductCard({ plant }) {
       <h2 className="product-card__name">{plant.name}</h2>
       <button
         type="button"
-        onClick={addToCart}
+        onClick={handleAddToCart}
         className="product-card__button"
         disabled={isDisabled}
       >
