@@ -23,5 +23,10 @@
 
   &__button {
     max-width: 100px;
+
+    &:disabled {
+      background-color: gray;
+      cursor: initial;
+    }
   }
 }

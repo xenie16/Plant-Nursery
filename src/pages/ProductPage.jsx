@@ -1,4 +1,5 @@
 import Navbar from "../components/Navbar";
+import ProductCard from "../components/ProductCard";
 import "../scss/pages/product-page.scss";
 import "../scss/components/Product-card.scss";
 
@@ -89,23 +90,9 @@ function ProductPage() {
               {formatCollectionName(collectionName)}
             </h1>
             <div className="product-card__grid">
-              {plants.map((plant) => {
-                return (
-                  <article className="product-card">
-                    <img
-                      loading="lazy"
-                      className="product-card__image"
-                      key={plant.id}
-                      src={plant.src}
-                      alt={plant.alt}
-                    ></img>
-                    <h2 className="product-card__name">{plant.name}</h2>
-                    <button className="product-card__button">
-                      Add to Cart
-                    </button>
-                  </article>
-                );
-              })}
+              {plants.map((plant) => (
+                <ProductCard key={plant.id} plant={plant} />
+              ))}
             </div>
           </section>
         );
