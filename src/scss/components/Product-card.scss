@@ -20,13 +20,4 @@
     height: auto;
     border-radius: 15px;
   }
-
-  &__button {
-    max-width: 100px;
-
-    &:disabled {
-      background-color: gray;
-      cursor: initial;
-    }
-  }
 }
