@@ -30,10 +30,10 @@ function Cart() {
         <p>Your cart is empty</p>
       ) : (
         cartItems.map((item) => (
-          <div key={item.id} className="cart-item">
+          <div key={item.product.id} className="cart-item">
             <img
-              src={item.src}
-              alt={item.alt}
+              src={item.product.src}
+              alt={item.product.alt}
               className="cart-item__image"
             ></img>
             <h2>{item.name}</h2>
