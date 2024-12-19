@@ -24,6 +24,7 @@ function ProductCard({ plant }) {
         alt={plant.alt}
       ></img>
       <h2 className="product-card__name">{plant.name}</h2>
+      <p className="product-card__price">€ {plant.price}</p>
       <button
         type="button"
         onClick={handleAddToCart}
