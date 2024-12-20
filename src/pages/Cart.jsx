@@ -32,6 +32,10 @@ function Cart() {
     navigate("/products");
   };
 
+  const checkoutAlert = () => {
+    alert("Check out coming soon!");
+  };
+
   return (
     <>
       <Navbar />
@@ -83,7 +87,9 @@ function Cart() {
             ))}
           </div>
       )}
-        <button type="button">Checkout</button>
+        <button onClick={checkoutAlert} type="button">
+          Checkout
+        </button>
         <button onClick={productPageRedirect} type="button">
           Continue Shopping
         </button>
