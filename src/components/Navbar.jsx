@@ -15,6 +15,10 @@ function Navbar() {
     navigate("/cart");
   };
 
+  const productPageRedirect = () => {
+    navigate("/products");
+  };
+
   return (
     <nav className="navbar">
       <div onClick={landingPageRedirect} className="navbar__brand">
@@ -24,7 +28,7 @@ function Navbar() {
           <p>Where Every Leaf Tells a Story</p>
         </div>
       </div>
-      <a className="navbar__links" href="./products">
+      <a onClick={productPageRedirect} className="navbar__links">
         Plants
       </a>
       <div className="navbar__cart">
