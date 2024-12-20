@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -9,6 +10,7 @@ import {
 function Cart() {
   const cartItems = useSelector(selectCartItems);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const totalPrice = cartItems
     .reduce((total, item) => total + item.product.price * item.quantity, 0)
@@ -24,6 +26,10 @@ function Cart() {
 
   const handleRemoveItem = (productId) => {
     dispatch(removeFromCart({ id: productId }));
+  };
+
+  const productPageRedirect = () => {
+    navigate("/products");
   };
 
   return (
@@ -78,7 +84,9 @@ function Cart() {
           </div>
       )}
         <button type="button">Checkout</button>
-        <button type="button">Continue Shopping</button>
+        <button onClick={productPageRedirect} type="button">
+          Continue Shopping
+        </button>
       </section>
     </>
   );
