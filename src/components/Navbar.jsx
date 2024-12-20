@@ -31,13 +31,8 @@ function Navbar() {
       <a onClick={productPageRedirect} className="navbar__links">
         Plants
       </a>
-      <div className="navbar__cart">
-        <img
-          className="navbar__cart-icon"
-          onClick={cartRedirect}
-          src="/cart-icon.svg"
-          alt=""
-        ></img>
+      <div onClick={cartRedirect} className="navbar__cart">
+        <img className="navbar__cart-icon" src="/cart-icon.svg" alt=""></img>
         <span className="navbar__cart-total">{totalItems}</span>
       </div>
     </nav>
