@@ -1,16 +1,22 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../redux/slices/cartSlice";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, selectCartItems } from "../redux/slices/cartSlice";
 
 function ProductCard({ plant }) {
-  const [buttonText, setUseButtonText] = useState("Add to Cart");
-  const [isDisabled, setIsDisabled] = useState(false);
+  const cartItems = useSelector(selectCartItems);
+  const isItemInCart = cartItems.some((item) => item.product.id === plant.id);
+  const addedToCartText = "Added to Cart";
+
+  const [buttonText, setUseButtonText] = useState(
+    isItemInCart ? addedToCartText : "Add to Cart"
+  );
+  const [isDisabled, setIsDisabled] = useState(isItemInCart);
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
-    if (isDisabled === false) {
+    if (!isDisabled) {
       dispatch(addToCart(plant));
-      setUseButtonText("Added to Cart");
+      setUseButtonText(addedToCartText);
       setIsDisabled(true);
     }
   };
