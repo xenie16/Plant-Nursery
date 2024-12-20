@@ -21,22 +21,29 @@ function Cart() {
       dispatch(removeFromCart({ id }));
     }
   };
+
+  const handleRemoveItem = (productId) => {
+    dispatch(removeFromCart({ id: productId }));
+  };
+
   return (
     <>
       <Navbar />
+      <section className="cart">
       <h1>Cart</h1>
       <p>Total Cost: € {totalPrice}</p>
       {cartItems.length === 0 ? (
         <p>Your cart is empty</p>
       ) : (
-        cartItems.map((item) => (
+          <div>
+            {cartItems.map((item) => (
           <div key={item.product.id} className="cart-item">
             <img
               src={item.product.src}
               alt={item.product.alt}
               className="cart-item__image"
             ></img>
-            <h2>{item.name}</h2>
+                <h2>{item.product.name}</h2>
             <p>Price: € {item.product.price}</p>
             <div className="cart-item__quantity">
               <button
@@ -60,9 +67,19 @@ function Cart() {
             <p>
               Total Cost: € {(item.product.price * item.quantity).toFixed(2)}
             </p>
+                <button
+                  onClick={() => handleRemoveItem(item.product.id)}
+                  type="button"
+                >
+                  Delete
+                </button>
+              </div>
+            ))}
           </div>
-        ))
       )}
+        <button type="button">Checkout</button>
+        <button type="button">Continue Shopping</button>
+      </section>
     </>
   );
 }
